@@ -1,0 +1,29 @@
+p{
+  padding: .25em;
+}
+
+h2{
+  padding: .1em;
+}
+
+.card {
+  max-width: 400px;
+  border-radius:2em;
+  background-color: black;
+  align-self: center;
+}
+
+.card-header{
+  color: white;
+}
+
+.card-body{
+  background-color: slategrey;
+  border-radius: 2em;
+}
+
+.angular-header-image {
+  background-image: url('../../../../favicon.ico');
+  background-size: cover;
+}
+
