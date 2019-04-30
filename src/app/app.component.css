@@ -1,0 +1,41 @@
+.container {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.content{
+  padding: 1em;
+}
+
+.heading{
+  width: 100%;
+  background-color: black;
+  color: white;
+  font-size: 5em;
+}
+
+.sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.table-button{
+  width: 100%;
+  height: 100%;
+  color: white;
+  background-color: black;
+  font-style: oblique;
+  font-size: 2em;
+  border-radius: 0;
+}
+
+.sidenav {
+  padding: 20px;
+  height: auto;
+  overflow: hidden;
+}

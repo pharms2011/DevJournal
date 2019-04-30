@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { AngularComponent } from './components/subjects/angular/angular.component';
 
 import {MatCardModule} from '@angular/material/card';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,11 @@ import {MatCardModule} from '@angular/material/card';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    MatSidenavModule,
+    MatButtonModule,
+    FormsModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

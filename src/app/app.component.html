@@ -1,7 +1,22 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Game Over
-  </h1>
-<app-angular>
+<link href="https://fonts.googleapis.com/css?family=Copperplate Gothic" rel="stylesheet"/>
+<h1 class="heading">
+  Dev Journal
+</h1>
 
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')">
+    <button>hello!</button>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <p><button mat-button class="table-button" (click)="sidenav.toggle()">Table of Contents</button></p>
+    <div class="content">
+      <app-angular></app-angular>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- Copyright 2019 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
