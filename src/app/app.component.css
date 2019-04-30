@@ -1,12 +1,31 @@
+.btn{
+  width: 8em;
+  height: 2em;
+  background-color: lightslategrey;
+  color: white;
+  font-size: 1.5em;
+  border: 1em;
+  border: black;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.btn-container{
+  background-color: black;
+}
+
+.btn:hover {
+  background-color: darkslategrey;
+  color: white;
+}
+
 .container {
-  height: 100%;
-  position: absolute;
-  left: 0;
-  right: 0;
+  overflow: hidden;
 }
 
 .content{
-  padding: 1em;
+  width: 75%;
+  margin: auto;
+  overflow: hidden;
 }
 
 .heading{
@@ -21,7 +40,6 @@
   height: 100%;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
 }
 
 .table-button{
@@ -37,5 +55,4 @@
 .sidenav {
   padding: 20px;
   height: auto;
-  overflow: hidden;
 }

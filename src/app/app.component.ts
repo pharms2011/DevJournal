@@ -13,11 +13,7 @@ export class AppComponent {
 
   shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
 
-  toggle() {
-    if (this.showFiller) {
-      this.showFiller = false;
-    } else {
-      this.showFiller = true;
-    }
+  print() {
+    console.log('print');
   }
 }

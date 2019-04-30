@@ -5,13 +5,18 @@
 </h1>
 
 <mat-sidenav-container>
-  <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')">
-    <button>hello!</button>
+  <mat-sidenav  class="btn-container" #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')">
+    <br/>
+    <br/>
+    <button class="btn" (click)="print()">Angular</button>
+    <br/>
+    <button class="btn">Spring</button>
   </mat-sidenav>
 
-  <mat-sidenav-content>
-    <p><button mat-button class="table-button" (click)="sidenav.toggle()">Table of Contents</button></p>
+  <mat-sidenav-content class="container">
+    <button mat-button class="table-button" (click)="sidenav.toggle()">Table of Contents</button>
     <div class="content">
+      <br/>
       <app-angular></app-angular>
     </div>
   </mat-sidenav-content>
