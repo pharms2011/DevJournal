@@ -28,7 +28,7 @@ h2{
 }
 
 .angular-header-image {
-  background-image: url('../../../../assets/images/favicon.ico');
+  background-image: url('../../../../../assets/images/Angular-Material.svg');
   background-size: cover;
 }
 

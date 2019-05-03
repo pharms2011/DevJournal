@@ -8,16 +8,19 @@
   <mat-sidenav  class="btn-container" #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')">
     <br/>
     <br/>
-    <button class="btn" (click)="print()">Angular</button>
-    <br/>
-    <button class="btn">Spring</button>
+    <div class="btn-group">
+    <button class="btn" (click)= 'changeState()' routerLink="Angular">Angular</button>
+      <button class="btn" routerLink="Angular-Material">Angular Material</button>
+      <br/>
+    <button class="btn" routerLink="Spring">Spring</button>
+    </div>
   </mat-sidenav>
 
   <mat-sidenav-content class="container">
     <button mat-button class="table-button" (click)="sidenav.toggle()">Table of Contents</button>
     <div class="content">
       <br/>
-      <app-angular></app-angular>
+      <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

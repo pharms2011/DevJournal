@@ -16,8 +16,74 @@
     <h2>Components</h2>
     <p>
       Angular Components are standalone page elements that make up our angular application. When generating a Component,
-      Angular will generate the Typscript, HTML, and CSS files as well as a file used for testing. The main core of Angualar
-      is the modularity of Components that help to divide complexity down and to reuse code as much as possible.
+      Angular will generate the Typscript, HTML, and CSS files as well as a file used for testing. The main core of
+      Angualar is the modularity of Components that help to divide complexity down and to reuse code as much as possible.
+      We signify that a typescript file is a component with the @Component decorator imported from Angular core. Within the
+      decorator you supply the component with metadata including the name of the selector by which the component is
+      referred to later in the application, the templateUrl or location of the HTML file, and the stylesheet used for
+      specific styling of the component. You can also define all of the CSS and HTML in the typescript file. You can also
+      set your component to be set by attribute by placing your selector in square brackets or tho=rough class declaration
+       by using .selector-name as the selector of the component..
+    </p>
+    <h2>App Module</h2>
+    <p>
+      The app module is the code component of a module that houses the functionality of an app. The app.module file will
+      include all of the imports used throughout the module. It also registers all of the internal aspects including
+      components and services created for the application.
+    </p>
+    <h2>Databinding</h2>
+    <p>
+      Databinding is connecting data in the front end to data stored in the application logis. This can be accomplished
+      using String Interpolation or Property Binding.
+    </p>
+    <br/>
+    <h3>String Interpolation</h3>
+    <br/>
+    <p>
+      This is the simplest form, connecting a string value in the backend to connect to a simple string element in the front end.
+      Anything put into the curly braces must resolve to a string, this means it can be a method or a string variable or
+      even just a string.
+    </p>
+    <br/>
+    <p class="code">
+      {{'{'}}{{'{'}}"data"{{'}'}}{{'}'}}
+    </p>
+    <br/>
+    <h3>Property Binding</h3>
+    <br/>
+    <p>
+      Property binding allows you to link a value in the backend to dynamically set the property of an HTML element. This
+      value can be any data type corresponding with the property. You can also bind to directives and other components.
+    </p>
+    <br/>
+    <p class="code">
+      {{'['}}property{{']'}}=value
+    </p>
+    <br/>
+    <h3>Event Binding</h3>
+    <br/>
+    <p>
+      Event binding allows a direct correlation between events on the DOM to functions and logic in the backend. Functions
+      can be created in the backend, typically using onEvent naming convention. This allows a connection between the DOM
+      and user input.
+    </p>
+    <br/>
+    <p class="code">
+      Ex:
+      <br/><br/>
+      HTML:
+      <br/><br/>
+      (Within an HTML tag)(click)="onCreateServer()
+      <br/><br/>
+      Typescript:
+      <br/><br/>
+      onCreateServer(){{'{'}}
+
+      {{'}'}}
+    </p>
+    <h2>Button Animations</h2>
+    <p>
+      
     </p>
   </mat-card-content>
   <mat-card-actions>
