@@ -12,13 +12,15 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import { AngularMaterialComponent } from './components/subjects/angular/angular-material/angular-material.component';
 import { SpringComponent } from './components/subjects/spring/spring.component';
+import { AmazonWebServicesComponent } from './components/subjects/amazon-web-services/amazon-web-services.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AngularComponent,
     AngularMaterialComponent,
-    SpringComponent
+    SpringComponent,
+    AmazonWebServicesComponent
   ],
   imports: [
     BrowserModule,
