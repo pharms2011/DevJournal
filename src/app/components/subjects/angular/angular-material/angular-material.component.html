@@ -8,7 +8,7 @@
     <p>
       Angular Material is a prebuilt framework for angular components made by the angular team. The components are made
       to be responsive and to run well on mobil and desktop environments. Material itself was designed by google to
-      sythisis design principles as well as clas platform unified look and feel.
+      synthesis design principles as well as class platform unified look and feel.
     </p>
     <h2>Principles</h2>
     <p>
@@ -23,11 +23,31 @@
     </p>
     <h2>Angular Flex Layout Box Model</h2>
     <p>
-      A Flex container is a box created by an element which has a computed dispaly of flex or inline flex. Flex items are
-      elements within this box.
+      A Flex container is a box created by an element which has a computed display of flex or inline flex. Flex items are
+      elements within this box. Flex box is fully supported in Angular. There's nothing special about it as far as I can
+      tell for now.<br/><br/>
+      Ex:<br/><br/>
+    </p>
+    <p class="code">
+      .flex-box{{'{'}}<br/><br/>
+      display: flex<br/><br/>
+      flex-flow: row-wrap;<br/><br/>
+      {{'}'}}<br/><br/>
+      <br/><br/>
+      .flex-content{{'{'}}<br/><br/>
+      {{']'}}<br/><br/>
+    </p>
+    <h2>Angular Custom Component Styling</h2>
+    <p>
+      If there is one thing I hate about Angular Material, it's how hard it can be to give custom styling to provided
+      components. The only way I have been able to manipulate simple CSS features on these components is to describe where
+      they will be displayed in gratuitous detail in the style.css file, like below.
+      <br/><br/>
+      Ex:<br/><br/>
+    <p class="code">
+      .mat-expansion-panel-content .mat-expansion-panel-body .mat-nav-list{{'{'}}<br/><br/>
+    padding: 0;<br/><br/>
+    {{'}'}}<br/><br/>
     </p>
   </mat-card-content>
-  <mat-card-actions>
-  </mat-card-actions>
 </mat-card>
-v

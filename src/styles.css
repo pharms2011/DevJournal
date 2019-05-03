@@ -8,3 +8,34 @@ body{
   background-color: darkslategrey;
   font-family: 'Ubuntu', sans-serif;
 }
+p{
+  padding: .5em;
+}
+
+h2{
+  padding:.5em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card {
+  width: 90%;
+  border-radius:2em;
+  background-color: black;
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-header{
+  color: white;
+}
+
+.card-body{
+  background-color: slategrey;
+  border-radius: 2em;
+  align-content: center;
+}
+.code{
+  font-family: "Courier New", monospace;
+}

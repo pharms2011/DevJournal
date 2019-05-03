@@ -81,11 +81,37 @@
 
       {{'}'}}
     </p>
-    <h2>Button Animations</h2>
+    <h2>Animations</h2>
     <p>
-      
+      Animations in Angular can be a bit unpredictable, but are basically assigned to an HTML decorator in the HTML tag.
+      They can be added and specified from the ts file withing the metadata for teh component. These can also be tied to
+      specific values of an assigned variable in 
+    </p>
+    <p class="code">
+      Ex:
+      <br/><br/>
+      trigger('balloonEffect', [<br/><br/>
+      state('initial', style({{'{'}}<br/><br/>
+      backgroundColor: 'green',<br/><br/>
+      transform: 'scale(1)'<br/><br/>
+      })),<br/><br/>
+      state('final', style({{'{'}}<br/><br/>
+      backgroundColor: 'red',<br/><br/>
+      transform: 'scale(1.5)'<br/><br/>
+      })),<br/><br/>
+      transition('final=>initial', animate('1000ms')),<br/><br/>
+      transition('initial=>final', animate('1500ms'))<br/><br/>
+      ]),<br/><br/>
+  </p>
+    <h2>Karma Testing</h2>
+    <p>
+
+     <br/><br/>
+      Ex:
+      <br/><br/>
+    </p>
+    <p class="code">
+
     </p>
   </mat-card-content>
-  <mat-card-actions>
-  </mat-card-actions>
 </mat-card>
