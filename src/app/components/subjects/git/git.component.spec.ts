@@ -1,22 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AngularMaterialComponent } from './angular-material.component';
+import { GitComponent } from './git.component';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
-describe('AngularMaterialComponent', () => {
-  let component: AngularMaterialComponent;
-  let fixture: ComponentFixture<AngularMaterialComponent>;
+describe('GitComponent', () => {
+  let component: GitComponent;
+  let fixture: ComponentFixture<GitComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AngularMaterialComponent ],
+      declarations: [ GitComponent ],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AngularMaterialComponent);
+    fixture = TestBed.createComponent(GitComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

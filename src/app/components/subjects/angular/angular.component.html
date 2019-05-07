@@ -85,7 +85,7 @@
     <p>
       Animations in Angular can be a bit unpredictable, but are basically assigned to an HTML decorator in the HTML tag.
       They can be added and specified from the ts file withing the metadata for teh component. These can also be tied to
-      specific values of an assigned variable in 
+      specific values of an assigned variable in
     </p>
     <p class="code">
       Ex:
@@ -102,16 +102,32 @@
       transition('final=>initial', animate('1000ms')),<br/><br/>
       transition('initial=>final', animate('1500ms'))<br/><br/>
       ]),<br/><br/>
-  </p>
+    </p>
     <h2>Karma Testing</h2>
     <p>
-
+      Karma tests are included implicitly with every generated component and service in Angular within the spec file.
+      These files are used as templates to test primarily your typescript files and your applications business logic.
+      Specifically for angular, testing helps a lot when there is an update and you would like to pin point where your
+      code no longer works.<br/><br/>
+      Tests are designed to simulate a user in your application to make sure it works in the way you are expecting. The
+      tests typically include the testing module from angular core which includes TestBed and async. Most test start with
+      before each and before each asyc functions to help set up the appropriate variables and settings for each test. The
+      tests also contains a test to determine if the app was created. <br/><br/>
+      Karma tests use expect as forms of assert statements. You must also render elements on your own with functions like
+      fixture.detectChanges() as these will not be rendered by default.
      <br/><br/>
       Ex:
       <br/><br/>
     </p>
     <p class="code">
 
+    </p>
+    <br/>
+    <h3>Routing Testing Issue</h3>
+    <br/>
+    <p>
+      I had some issues at one point getting an exception creating a navigation component that used the routing module.
+      I resolved this by among other things adding the import to the imports array in the components spec file.
     </p>
   </mat-card-content>
 </mat-card>

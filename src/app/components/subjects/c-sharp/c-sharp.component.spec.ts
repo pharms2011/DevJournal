@@ -1,22 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AngularMaterialComponent } from './angular-material.component';
+import { CSharpComponent } from './c-sharp.component';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
-describe('AngularMaterialComponent', () => {
-  let component: AngularMaterialComponent;
-  let fixture: ComponentFixture<AngularMaterialComponent>;
+describe('CSharpComponent', () => {
+  let component: CSharpComponent;
+  let fixture: ComponentFixture<CSharpComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AngularMaterialComponent ],
+      declarations: [ CSharpComponent ],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AngularMaterialComponent);
+    fixture = TestBed.createComponent(CSharpComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

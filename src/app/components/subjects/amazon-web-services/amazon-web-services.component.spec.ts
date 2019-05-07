@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AmazonWebServicesComponent } from './amazon-web-services.component';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 describe('AmazonWebServicesComponent', () => {
   let component: AmazonWebServicesComponent;
@@ -8,7 +9,8 @@ describe('AmazonWebServicesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AmazonWebServicesComponent ]
+      declarations: [ AmazonWebServicesComponent ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
     .compileComponents();
   }));
