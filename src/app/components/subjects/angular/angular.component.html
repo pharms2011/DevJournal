@@ -13,6 +13,14 @@
       Typescript is a superset of Javascript that is much more similar to Java or any other object oriented language. Type
       script is transpiled when the angular app is built into vanilla javascript which runs much more easily in the browser.
     </p>
+    <h2>Creating an Angular App</h2>
+    <p>
+      To Create an angular app, you first need to install node js. This is a library that will allow your application to
+      functionality needed for angular to work properly. Once node is insalled globally, you can use the command ng new
+      app-name to create a new angular app. Once your app has been created, you can view it in the browser with the command
+      ng serve or ng serve --open to open a new browser.  By default, angular will serve your app on an internal tomcat
+      server on port 4200.
+    </p>
     <h2>Components</h2>
     <p>
       Angular Components are standalone page elements that make up our angular application. When generating a Component,
@@ -103,6 +111,40 @@
       transition('initial=>final', animate('1500ms'))<br/><br/>
       ]),<br/><br/>
     </p>
+    <h2>Styling</h2>
+    <p>
+      Angular Custom Components are constructed by being bundled up into an inclusive element that ties into a the
+      element. The styling is contained within a shadow dom, not accessible from outside in the parent element
+      containing the custom element.<br/><br/>
+      The reason that not all styling elements are applied to internal components has to do with style encapsulation.
+      you can see this on some level within the browser when the application is rendered. The framework processes the
+      css are inserted in the head and automatically scoped to the specific component by giving an additional class name
+      to the styled elements.<br/><br/>
+      You can only turn off view encapsulation within the individual component, making these styles in the child
+      component global. this is added to the selector meta data and imported from Angular Core. This can be set to None,
+      making the styles global, or Native, making the styles use the shadow DOM so that the markup has a shodow root
+      rather than the mimicked scope used by default, though not all browsers support this. This can be done if you
+      would like global styles in the app component style sheet.<br/><br/>
+    </p>
+    <h2>Sass</h2>
+    <p>
+      Preprocessors also exist that make using CSS easier and more diverse. To do this follow the below steps
+    </p>
+    <div class="container">
+      <ol>
+        <li>Add node-sass and rimraf to your package.json file</li>
+        <li>Add included tasks to the script file within the package.json</li>
+      </ol>
+      <ul>
+        <li>"clean": "rimraf app/**/*.css app/**/*.js app/**/*.js.map",</li>
+        <li>"lite": "lite-server",</li>
+        <li>"tsc": "tsc",</li>
+        <li>"scss": "node-sass app/ -o app/",</li>
+        <li>"scss:w": "npm run scss && node-sass app/ -wo app/",</li>
+        <li>"prestart": "npm run clean"</li>
+        <li>"start": "concurrently \"npm run scss\" \"npm run scss:w\" \"tsc -w\" \"lite-server\" "</li>
+      </ul>
+    </div>
     <h2>Karma Testing</h2>
     <p>
       Karma tests are included implicitly with every generated component and service in Angular within the spec file.
@@ -113,21 +155,113 @@
       tests typically include the testing module from angular core which includes TestBed and async. Most test start with
       before each and before each asyc functions to help set up the appropriate variables and settings for each test. The
       tests also contains a test to determine if the app was created. <br/><br/>
+      These Karma tests are defined by it('test message', asyc(() => {{'{'}}test{{'}'}})); When the testing is run, you
+      can see the results specified for the test.<br/><br/>
       Karma tests use expect as forms of assert statements. You must also render elements on your own with functions like
-      fixture.detectChanges() as these will not be rendered by default.
+      fixture.detectChanges() as these will not be rendered by default.<br/><br/>
+      Testbed allows you to simulate the creation of your components. you must create the component that is being tested
+      by each test. You can then use fixture to generate native elements<br/><br/>
+      Within the describe function, you mist declare any components that will be used for testing. If you are not using a
+      webpack CLI testing environment, you must also call the compile function, though as I said this is not needed for
+      webpack cli testing as they have a different flow that compiles the component automatically based on the descriptors
+      in the class itself.
      <br/><br/>
+      When testing internal service dependencies, you must generate the app as normal, and then inject this service into
+      your app using fixture.debugElement.injector.get(serviceName) you can then expect different things concerning the
+      service. You must also run change detection to allow the component to compile as this is not done automatically.
+      Once you have the service, you are able to test its interaction with your component. For services that interact with
+      live data and servers, you can use the spyOn() method to spy on the method interacting with the server. This means
+      you are listening for this method call to return dummy data rather than interacting with the server. Because of the
+      nature of these methods, you can use the fixture's detectChanges and when stable methods to wait until the data is
+      received from the asynchronous function. Alternatively, you can import the tick function to make the test wait until
+      the asynchronous functions that came before is are complete.
+      <br/><br/>
+      To get a report on test coverage, you can install run ng test --code-coverage or include the below in angular.json
+      This should generate a coverage folder in you root directory and a report can be viewed in the index.html file.
+    </p>
+    <p class="code">
+      <br/><br/>
+      "test":{{'{'}}<br/><br/>
+      "options":{{'{'}}<br/><br/>
+      "codeCoverage": true<br/><br/>
+      {{'}'}}<br/><br/>
+      {{'}'}}<br/><br/>
+      <br/><br/>
+    <p>
+      You can set the code coverage standards for ng test passing by including the below in the karama.conf.js file.
+      <br/><br/>
+  </p>
+    <p class="code">
+      thresholds: {{'{'}}<br/><br/>
+      statements: 90,<br/><br/>
+      lines: 90,<br/><br/>
+      branches: 90,<br/><br/>
+      functions: 90<br/><br/>
+      {{'}'}}<br/><br/>
+    </p>
+    <p>
       Ex:
       <br/><br/>
     </p>
     <p class="code">
-
+      it('should create the app', async(() => {{'{'}}<br/><br/>
+      const fixture = TestBed.createComponent(AppComponent);<br/><br/>
+      const app = fixture.debugElement.componentInstance;<br/><br/>
+      expect(app).toBeTruthy();<br/><br/>
+      {{'}'}}));<br/><br/>
     </p>
     <br/>
+    <h3>Karma Parallel</h3>
+    <br/>
+    <p>
+      Karma Parallel is a plugin available for angular that helps speed up the testing time required for larger angular
+      apps. This allows all spec files to be run in multiple threads, though this can cause multiple browsers to begin
+      testing all a once.<br/><br/>
+      To set us Karma Parallel, you just need to run the below line to install the plugin and modify the karma.conf.js
+      file
+    </p>
+    <br/><br/>
+    <p class="code">
+      npm i karma-parallel --save-dev<br/><br/>
+      parallelOptions: {{'{'}}<br/><br/>
+      executors: 4, // Defaults to cpu-count - 1<br/><br/>
+      shardStrategy: 'round-robin'<br/><br/>
+      // shardStrategy: 'description-length'<br/><br/>
+      // shardStrategy: 'custom'<br/><br/>
+      // customShardStrategy: function(config) {{'{'}}<br/><br/>
+      //   config.executors // number, the executors set above<br/><br/>
+      //   config.shardIndex // number, the specific index for the shard currently running<br/><br/>
+      //   config.description // string, the name of the top-level describe string.<br/><br/>
+      //   Useful for determining how to shard the current specs<br/><br/>
+      //   return config.<br/><br/>
+      // {{'}'}}<br/><br/>
+      {{'}'}},<br/><br/>
+    </p>
     <h3>Routing Testing Issue</h3>
     <br/>
     <p>
       I had some issues at one point getting an exception creating a navigation component that used the routing module.
       I resolved this by among other things adding the import to the imports array in the components spec file.
+    </p><br/><br/>
+    <h3>Infinite Testing Issue</h3>
+    <br/>
+    <p>
+      I had some issues at one point where browsers were just continuing opening ang the results never came into the
+      terminal. I fixed this by changing singleRun: from false to true.
+    </p><br/><br/>
+    <h3>Accessing app through a Gateway</h3>
+    <br/>
+    <p>
+      Sometimes going through a gateway makes the server forget where the js files are and gives loads of 404 errors. I
+      fixed this by changing the base href in the index.html page to match it's name in the registry. Make sure the name
+      has a backslash on either side for routing purposes. This allows assets to be mapped to the name of the app rather
+      than relative pathing. That way the gateway is able to find the assets.
+    </p><br/>
+    <p>
+      Assets can also be difficult to locate through the gateway, but this can be quickly solved using explicit routing
+      instead of relative routing.
     </p>
+    <br/><br/>
+
   </mat-card-content>
 </mat-card>

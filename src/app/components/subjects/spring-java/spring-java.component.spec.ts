@@ -1,22 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SpringComponent } from './spring.component';
+import { SpringJavaComponent } from './spring-java.component';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
-describe('SpringComponent', () => {
-  let component: SpringComponent;
-  let fixture: ComponentFixture<SpringComponent>;
+describe('SpringJavaComponent', () => {
+  let component: SpringJavaComponent;
+  let fixture: ComponentFixture<SpringJavaComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SpringComponent ],
+      declarations: [ SpringJavaComponent ],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SpringComponent);
+    fixture = TestBed.createComponent(SpringJavaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

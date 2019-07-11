@@ -49,5 +49,107 @@
     padding: 0;<br/><br/>
     {{'}'}}<br/><br/>
     </p>
+    <h2>Material Icons</h2>
+    <p>
+      Material icons can be configured with a global svg icon registry, or it can be configure to apply icons provided
+      directly from google.
+    </p>
+    <h2>Material Table</h2>
+    <p>
+      Material tables are configures to automatically complete themselves using a pre-defined data source as described
+      below. Each row in the table is defined in a ng-container that includes a matColumnDef that corresponds to an element
+      in the display columns array defined in the backend. Each row must have a valid entry in this array.
+    </p>
+    <br/>
+    <h3>Material Data Source</h3><br/>
+    <p>
+      Many material components rely on or can use the material data source object. These can be configure to work through
+      an observable provided by a service accessing an API using the following code example.
+    </p><br/><br/>
+    <p class="code">
+      this.service.serviceMethod().subscribe(<br/>
+      data =>{{'{'}}<br/><br/>
+      this.dataContainer = data;<br/><br/>
+      this.dataSource.data = this.dataContainer;<br/>
+      {{'}'}},<br/><br/>
+      error => {{'{'}}<br/><br/>
+      this.errors = error;<br/><br/>
+      {{'}'}},<br/><br/>
+      );<br/><br/>
+    </p>
+    <h3>Material Paginator</h3><br/>
+    <p>
+      You can easily add pagination to you angular material table by adding the blow code to you component. This will give
+      you an easily modifiable way to add pagination for you table. You can also set a defined number of elements on each
+      page through the data binding to an element in the backend.
+    </p>
+    <p class="code">
+      HTML:<br/><br/>
+      {{'<'}}mat-paginator [pageSizeOptions]="[2, 10, 20]" showFirstLastButtons
+      {{'>'}}}{{'<'}}/mat-paginator{{'>'}}{{'<'}}/div><br/><br/>
+      Typscript:<br/><br/>
+      @ViewChild(MatPaginator) paginator: MatPaginator;<br/><br/>
+      ngOnInit() {{'{'}}<br/><br/>
+      this.dataSource.paginator = this.paginator;<br/><br/>
+      {{'}'}}<br/><br/>
+    </p>
+    <h3>Material Filter</h3><br/>
+    <p>
+      Angular Material also allows you to add sorting functionality to your table, allowing users to only look at the
+      relevant data to them.
+    </p>
+    <h3>Material Sort</h3><br/>
+    <p>
+      Sorting in Angular material in a mat table only requires matSort in the table and mat-sort-column on any column
+      that you would like to be able to sort by. In the back end you also need to include the   @ViewChild(MatSort)
+      sort: MatSort;
+    </p>
+    <h3>Dialogs and Popups</h3><br/>
+    <p>
+      The MatDialog module allows you to define a material stylized component which can be opened and closed with the
+      option of choosing how to handle different inputs. Dialogs can have specified material components such as
+      mat-dialog-title, content, and actions. A button can be created to interact with the dialog by including
+      [mat-dialog-close]="true/false". Dialogs are created on the fly, so the component factory needs a description on
+      how to create it.
+    </p>
+    <h2>Theming</h2>
+    <p>
+      Themes in Angular Material include a set of icons ans well as sets of color for prebuilt theming of your website.
+      A style is required for all functions of angular material to work, though you can provide a custom theming file
+      which imports the mat-core() sass mixin which includes all common styles and defines a theme data structure that
+      composes multiple palettes and is built from either mat-light-theme or mat-dark-theme.
+      <br/><br/>
+      Ex:
+    </p>
+    <p class="code">
+      @import '~@angular/material/theming';<br/>
+      @include mat-core();<br/>
+    <br/>
+      $candy-app-primary: mat-palette($mat-indigo);<br/>
+      $candy-app-accent: mat-palette($mat-pink, A200, A100, A400);<br/>
+      <br/>
+      $candy-app-warn: mat-palette($mat-red);<br/>
+      <br/>/
+      $candy-app=theme: mat-light-theme(<br/>
+      $candy-app-primary,<br/>
+      $candy-app-accent,<br/>
+      $candy-app-warn);<br/>
+      <br/>
+      @include angular-material-theme($candy-app-theme);<br/>
+    </p>
+    <p>
+      As you can see, material theming is designed on sass files. These custom themes can be defined in our style.sass
+      or in another file which we import in our style.css file. Themes can also be defined and reset with events in our
+      application, allowing for different themes to be applied dynamically or even when routing.
+    </p>
+    <h2>Karma Testing</h2>
+    <p>
+      When using a framework like Material, Karma test will be affected. An error will be thrown and the resolution is
+      described in the stack trace, but what it is essentially saying is that the below must be added to the spec file
+      of any component using a material component.
+    </p><br/><br/>
+    <p class="code">
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+    </p>
   </mat-card-content>
 </mat-card>

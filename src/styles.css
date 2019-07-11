@@ -6,7 +6,6 @@
 }
 
 body{
-  background-color: darkslategrey;
   font-family: 'Ubuntu', sans-serif;
 }
 p{
@@ -36,7 +35,45 @@ h2{
   background-color: slategrey;
   border-radius: 2em;
   align-content: center;
+  color: black;
 }
 .code{
   font-family: "Courier New", monospace;
+}
+
+.red{
+  color: white;
+  background-color: maroon;
+}
+
+.commit-green{
+  color: black;
+  background-color: mediumspringgreen;
+}
+
+.space-blue{
+  color: white;
+  background-color: #1D2951;
+}
+
+.metal-blue{
+  color: white;
+  background-color: #1F282D;
+}
+
+.cyan{
+  color: black;
+  background-color: cyan;
+}
+
+.purple{
+  color: white;
+  background-color: rebeccapurple;
+}
+
+.container{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
 }

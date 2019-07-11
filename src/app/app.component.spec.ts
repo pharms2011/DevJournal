@@ -13,7 +13,7 @@ import {CSharpComponent} from './components/subjects/c-sharp/c-sharp.component';
 import {GitComponent} from './components/subjects/git/git.component';
 import {LinuxComponent} from './components/subjects/linux/linux.component';
 import {PythonComponent} from './components/subjects/python/python.component';
-import {SpringComponent} from './components/subjects/spring/spring.component';
+import {SpringJavaComponent} from './components/subjects/spring-java/spring-java.component';
 import {APP_BASE_HREF} from '@angular/common';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 describe('AppComponent', () => {
@@ -40,13 +40,18 @@ describe('AppComponent', () => {
         GitComponent,
         LinuxComponent,
         PythonComponent,
-        SpringComponent
+        SpringJavaComponent
       ],
       providers: [ {provide: APP_BASE_HREF, useValue: '/'}
       ],
     }).compileComponents();
   }));
   it('should create the app', async(() => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app).toBeTruthy();
+  }));
+  it('should create the leftnav', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();

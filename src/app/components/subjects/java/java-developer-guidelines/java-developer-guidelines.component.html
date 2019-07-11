@@ -1,0 +1,281 @@
+<mat-card class="card">
+  <mat-card-header class="card-header">
+    <div mat-card-avatar class="angular-header-image"></div>
+    <mat-card-title><h1>Java</h1></mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="card-body">
+    <h2>Java Standards</h2>
+    <p>
+      The following are programming standards set by Oracle and other governing bodies concerning the best usage of the
+      java programming language.
+    </p>
+    <h2>OOP Rules</h2>
+    <div class="list-container">
+      <ul>
+        <li>
+          A static field or method should be directly referred to by its class name instead of its corresponding object
+          name.
+        </li>
+        <li>
+          An overridden method from an interface or abstract class must be marked with @Override annotation.
+        </li>
+        <li>
+          varargs is recommended only if all parameters are of the same type and semantics. Parameters with Object type
+          should be avoided.
+        </li>
+        <li>
+          Modifying the method signature is forbidden to avoid affecting the caller. A @Depreciated annotation with an
+          explicit description of the new service is necessary when as interface is depreciated.
+        </li>
+        <li>
+          Using a depreciated interface is probated.
+        </li>
+        <li>
+          Since NullPointerException can possibly be thrown while calling the equals method of Object, equals should be
+          invoked by a constant or an object that is definitely not null.
+        </li>
+        <li>
+          Use the equals method, rather than reference equality '==', to compare primitive wrapper classes.
+        </li>
+        <li>
+          Rules for using primitive data types and wrapper classes:
+          <div class="list-container">
+            <ol>
+              <li>
+                Members of a POJO class must be wrapper classes
+              </li>
+              <li>
+                The return value and arguments of a RPC method must be wrapper classes
+              </li>
+            </ol>
+          </div>
+        </li>
+        <li>
+          While defining POJO classes like DO, DTO, VO, etc., do not assign any default values to the member
+        </li>
+        <li>
+          To avoid a deserialization failure, do not change the serialVersionUID when a serialized class needs to be
+          updated, such as adding some new members. If a completely incompatible update is needed,
+          <br/>
+          change the value of serialVersionUID in case of a confusion when deserialized.
+        </li>
+        <li>
+          Business logic in constructor methods is prohibited. All in initializations should be implemented in the init
+          method
+        </li>
+        <li>
+          The toString method must be implemented in a POJO class. The super.toString method should be called in the
+          beginning of the implementation if the current class extends another POJO class
+        </li>
+        <li>
+          For a setter method, the argument name should be the same as the field name. Implementations of business
+          logic's in getter/setter methods, which will increase difficulties of the  <br/>
+          troubleshooting, are not recommended.
+        </li>
+        <li>
+          Use the append method in StringBuilder inside a loop body when concatenating multiple strings
+        </li>
+        <li>
+          Keyword final should be used in the following situations:
+          <div class="list-container">
+            <ol>
+              <li>
+                A class which is not allowed to be inherited, or local variables not ne reassigned
+              </li>
+              <li>
+                An argument which is not allowed to be modified
+              </li>
+              <li>
+                A method which is not allowed to be overridden
+              </li>
+            </ol>
+          </div>
+          <li>
+            Be cautious to copy an object using the clone method in Object. The default implementation of clone in Object
+            is a shallow copy, which copies fields as pointers to the same objects<br/>
+            in memory
+        </li>
+        <li>
+          Define the access level of members in class with severe restrictions:
+          <div class="list-container">
+            <ol>
+              <li>
+                Constructor methods must be private if an allocation using the keyword outside of the class is forbidden
+              </li>
+              <li>
+                Constructor methods are not allowed to be public or default in a utility class
+              </li>
+              <li>
+                Nonstatic class variables that are accessed from inheritance must be protected
+              </li>
+              <li>
+                Nonstatic class variables that no one can access except the class that contains them must be private
+              </li>
+              <li>
+                Static variables that no one can access except the class that contains them must be private
+              </li>
+              <li>
+                Static variables should be considered in determining whether they are final
+              </li>
+              <li>
+                Class methods that no one can access except the class that contains them must be private
+              </li>
+              <li>
+                Class methods that are accessed from inhabitants must be protected
+              </li>
+            </ol>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <h2>Java Threads</h2>
+    <div class="list-container">
+      <ul>
+        <li>
+          Thead-safe should be ensured when initializing singleton instance, as well as all methods in it
+        </li>
+        <li>
+          A meaningful thread name is helpful to trace the error information, so assign a name when creating threads or
+          thread pools
+        </li>
+        <li>
+          Threads should be provided by thread pools. Explicitly creating threads is not allowed. Using thread pools can
+          reduce the time of creating and destroying thread and save system resource. If we do not use thread pools, lots
+          of similar threads will be created which lead to "running out of memory" or over-switching problem
+        </li>
+        <li>
+          A thread pool should be created by ThreadPoolExecutor rather than Executors. These would make the parameters of
+          the thread pool understandable. It would also reduce the risk of running out of system resources
+        </li>
+        <li>
+          SimpleDateFormat is unsafe, do not define it as a static variable. If you have to, lock or DateUtils class must
+          be used
+        </li>
+        <li>
+          remove() method must be implemented by ThreadLocal variables, especially when using thread pools in which threads
+          are often reused. Otherwise, it may affect subsequent business logic and cause unexpected problems such as memory leaks.
+        </li>
+        <li>
+          In highly concurrent scenarios, performance of Lock should be considered in synchronise calls. A block lock is
+          better than a class lock
+        </li>
+        <li>
+          When adding locks to multiple resources, tables in the database and objects at the same time, locking sequence
+          should be kept consistent to avoid deadlock
+        </li>
+        <li>
+          A lock needs to be used to avoid update failure when modifying one record concurrently. Add lock either in the
+          application layer, in the cache, or add optimistic lock in the database by using version as an update stamp
+        </li>
+        <li>
+          Run multiple TimeTask by using ScheduledExecutorService rather than Timer because Timer because Timer will kill
+          all running threads in case of failing to catch exceptions
+        </li>
+        <li>
+          In concurrent scenarios, one easy solution to optimize the lazy initialization problem by using double-checked
+          locking (referred to The Double-checking locking is broken Declaration), is to declare the object type as volatile
+        </li>
+      </ul>
+    </div>
+    <h2>Naming Convention</h2><br/>
+    <h3>Package names</h3>
+    <div class="list-container">
+      <ul>
+        <li>
+          Package names should be all lower case without underscores or other special characters
+        </li>
+        <li>
+          Don't use plural form. Follow the convention of the standard API which uses for instances
+        </li>
+        <li>
+          java.lang.annotation and not java.lang.annotations
+        </li>
+        <li>
+          Examples: com.yourcompany.widget.button, com.yourcompany.core.api
+        </li>
+      </ul>
+    </div>
+    <h3>Class, Interface and Enum Names</h3>
+    <div class="list-container">
+      <ul>
+        <li>
+          Class and enum names should typically be nouns
+        </li>
+        <li>
+          Interface names should typically be nouns or adjectives ending with...able
+        </li>
+        <li>
+          Use mixed case with the first letter in each word in upper case (i.e. CamelCase)
+        </li>
+        <li>
+          Match the regular expression ^[A-Z][a-zA-Z0-9]*$
+        </li>
+        <li>
+          Use whole words and avoid using abbreviations unless the abbreviation is more widely used than the long form
+        </li>
+        <li>
+          Format an abbreviation as a word if the word is part of a longer class name
+        </li>
+        <li>
+          Examples: ArrayList, BigInteger, ArrayIndexOutOfBoundsException, Iterable
+        </li>
+      </ul>
+    </div>
+    <h3>Method Names</h3>
+    <div class="list-container">
+      <ul>
+        <li>
+          Method names should typically be verbs or other descriptions of actions
+        </li>
+        <li>
+          They should match the regular expression ^[A-Z][a-zA-Z0-9]*$
+        </li>
+        <li>
+          Use mixed case with the first letter in lower case
+        </li>
+        <li>
+          Examples: toString, hashCode
+        </li>
+      </ul>
+    </div>
+    <h3>Variables</h3>
+    <div class="list-container">
+      <ul>
+        <li>
+          Variable names should be in mixed case with the first letter in lower case
+        </li>
+        <li>
+          Match the regular expressions ^[A-Z][a-zA-Z0-9]*$
+        </li>
+        <li>
+          Further recommendation: Variables
+        </li>
+        <li>
+          Examples: elements, currentIndex
+        </li>
+      </ul>
+    </div>
+    <h3>Type Variables</h3>
+    <div class="list-container">
+      <ul>
+        <li>
+          For simple cases where there are few type variables involved use a single upper case letter
+        </li>
+        <li>
+          Match the regular expressions ^[A-Z][a-zA-Z0-9]*$
+        </li>
+        <li>
+          If one letter is more descriptive than another (such as K and V for keys and values in maps or R for a function
+          return type) use that, otherwise use T
+        </li>
+        <li>
+          For complex cases where single letter type variables become confusing, use longer names written in all capitol
+          letters and use underscore (_) to separate words
+        </li>
+        <li>
+          Examples: T,V,SRC_VERTEX
+        </li>
+      </ul>
+    </div>
+  </mat-card-content>
+</mat-card>

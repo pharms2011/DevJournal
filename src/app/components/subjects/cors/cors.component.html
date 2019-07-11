@@ -1,0 +1,21 @@
+<mat-card class="card">
+  <mat-card-header class="card-header">
+    <div mat-card-avatar class="angular-header-image"></div>
+    <mat-card-title><h1>CORS</h1></mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="card-body">
+    <h2>What is CORS?</h2>
+    <p>
+      CORS is an internal security feature in most common browsers that rejects requests coming from unknown or different
+      URLs or origins. This is a great security feature but can cause issues with development, especially when you services
+      and UI are hosted at different locations.
+    </p>
+    <h2>Gateway Solution</h2>
+    <p>
+      One easy solution to this issue, is to run both the backend and front end from a gateway such as Zuul. This way the
+      backend and frontend applications appear to be running from the same source as long as the user accesses the
+      application through the gateway. You must also change the base href in the index file of you app if you are using
+      Angular.
+    </p>
+  </mat-card-content>
+</mat-card>

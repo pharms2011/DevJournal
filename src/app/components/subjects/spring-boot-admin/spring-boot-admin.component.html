@@ -1,0 +1,61 @@
+<mat-card class="card">
+  <mat-card-header class="card-header">
+    <div mat-card-avatar class="angular-header-image"></div>
+    <mat-card-title><h1>Spring Cloud Admin</h1></mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="card-body">
+    <h2>What is Spring Cloud Admin?</h2>
+    <p>
+      Spring Cloud Admin is an application server that allows for the centralization of the health and overall actuator
+      information of all your applications. It was designed by codecentric, but is an open source project. Each
+      application must register itself the server and allow access to their actuator end points.
+    </p>
+    <h2>Admin Server Setup</h2>
+    <div class="list-container">
+      <ol>
+        <li>
+          Add the below Maven  dependencies
+        </li>
+        <li>
+          Add @EnableAdminServer annotation to your main application class
+        </li>
+        <li>
+          Add @EnableAutoConfiguration annotation to your main application class
+        </li>
+      </ol>
+    </div>
+      <br/>
+    <p class="code">
+      {{'<'}}dependency{{'>'}}<br/>
+      {{'<'}}groupId{{'>'}}de.codecentric{{'<'}}/groupId{{'>'}}<br/>
+      {{'<'}}artifactId{{'>'}}spring-boot-admin-server{{'<'}}/artifactId{{'>'}}<br/>
+      {{'<'}}/dependency{{'>'}}<br/><br/>
+      {{'<'}}dependency{{'>'}}<br/>
+      {{'<'}}groupId{{'>'}}de.codecentric{{'<'}}/groupId{{'>'}}<br/>
+      {{'<'}}artifactId{{'>'}}spring-boot-admin-server-ui{{'<'}}/artifactId{{'>'}}<br/>
+      {{'<'}}/dependency{{'>'}}<br/>
+    </p>
+    <h2>Client Setup</h2>
+    <div class="list-container">
+      <ol>
+        <li>
+          Add the below dependencies to you pom
+        </li>
+        <li>
+          add spring.boot.admin.url="spring boot admin url" and management.security.enable=false
+        </li>
+      </ol>
+      <p class="code">
+        {{'<'}}dependency{{'>'}}<br/>
+        {{'<'}}groupId{{'>'}}de.codecentric{{'<'}}/groupId{{'>'}}<br/>
+        {{'<'}}artifactId{{'>'}}spring-boot-admin-starter-client{{'<'}}/artifactId{{'>'}}<br/>
+        {{'<'}}/dependency{{'>'}}<br/>
+      </p>
+      <h2>Discovery Client Configuration</h2>
+      <p>
+
+      </p>
+    </div>
+    <br/>
+  </mat-card-content>
+</mat-card>

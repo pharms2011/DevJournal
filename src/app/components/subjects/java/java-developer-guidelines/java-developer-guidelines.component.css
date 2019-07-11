@@ -1,0 +1,11 @@
+.angular-header-image {
+  background-image: url('../../../../../assets/images/java.png');
+  background-size: cover;
+}
+
+.list-container{
+  display: flex;
+  justify-content: space-around;
+  padding: 1em;
+  font-size: 1.2em;
+}

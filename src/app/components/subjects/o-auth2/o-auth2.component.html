@@ -1,0 +1,148 @@
+<mat-card class="card">
+  <mat-card-header class="card-header">
+    <div mat-card-avatar class="angular-header-image"></div>
+    <mat-card-title><h1>O Auth 2</h1></mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="card-body">
+    <h2>What is O Auth 2?</h2>
+    <p>
+      An Authentication framework built fot HTTP APIs, which allows for scoped user access to an API.
+    </p>
+    <h2>Authentication Vs Authorization</h2>
+    <p>
+      Authentication is verifying a person is who they say they are, while Authorization is verification that this
+      person can do what the are trying to do.
+    </p>
+    <h2>Credential Sharing</h2>
+    <p>
+      The application logs into the API as the user logging in. This can be an issue for te following reasons.
+    </p>
+    <div class="container">
+      <ol>
+        <li>There is no way for the API to tell the difference between the application and the user apart</li>
+        <li>Credentials cannot be revoked unless the user changes their password</li>
+        <li>The app must store the credentials, making them insecure and stored client side</li>
+        <li>Api would be restricted from being accessed through</li>
+      </ol>
+    </div>
+    <h2>Cookies</h2>
+    <p>
+      Cookies stored the credentials within the cookie stored on the browser.
+    </p>
+    <div class="container">
+      <ol>
+        <li>Cross-Site Request Forgery, meaning access is given to the browser, not the user</li>
+        <li>Not every user allows cookies by default</li>
+      </ol>
+    </div>
+    <h2>API Keys</h2>
+    <p>
+      The user enters a key given to them from the API, so the user is no longer needing to provide their details. It is
+      also able to configure access to other APIs and
+    </p>
+    <div class="container">
+      <ol>
+        <li>
+          Not useful or secure with single page applications, as they must store the key and this can cause it to get
+          stolen
+        </li>
+        <li>Keys are long lived, so they can be used for a long time once stolen</li>
+      </ol>
+    </div>
+    <h2>O Auth 2.0's Solution</h2>
+    <p>
+      4 Players, the HTTP API, the Client application, the Resource Owner/User, and the authorization server work in
+      conjunction to provide only the approved level of access to data and API's that is required for use.
+    </p>
+    <h2>Default Process Map</h2>
+    <div class="container">
+      <img alt="\_(0 >0)_/" src="./assets/OAuthDance.PNG"/>
+    </div>
+    <h2>Benefits</h2>
+    <div class="container">
+      <ol>
+        <li>Allows users to login using Google and Facebook</li>
+        <li>Completely secured on both the browser and API ends</li>
+      </ol>
+    </div>
+    <br/>
+    <h2>Common Misconceptions</h2>
+    <ol>
+      <li>Access Token is a protected resource, client apps should not need to authenticate the token</li>
+      <li>Does not outright define an access token, how to validate them, or how to authenticate the user</li>
+    </ol>
+    <h2>Protocol Endpoints</h2>
+    <p>
+      In O Auth, there are two protocol endpoints, Authorization and Token, for users and apps respectively. They must
+      both use transport layer security.
+    </p>
+    <h2>OAuth Scopes</h2>
+    <p>
+      Permissions on an API. This level of access can be divided among and level of the applications
+    </p>
+    <h2>Authorization Code Grant Type</h2>
+    <p>
+      This is a grant type designed for confidential clients, ie client applications that are secured, such as a backend
+      server serving up web pages. The client first redirects the client to request authorization. This redirect request
+      includes the response type, client id, the redirect URI that must be configured in the authorization server, the
+      state, and the scope being requested. All of these are stored in a query string. Once the request has been
+      authorized, the server sends bach the authorization code which has a short life span with all of the information
+      needed and the state code that had been sent in the request. The Application then sends this code through a POST
+      command which gives the host name, content type, and authorization, The body includes a grant type which is
+      authorization code, a code which is that code, and the redirect uri for the client.
+    </p>
+    <p class="code">
+      https://authserver.exapmle.com/authorize<br/>
+      Query Parmeters<br/>
+      ?response_type=code<br/>
+      &client_id=s6BhdRkqt3<br/>
+      $redirect_uri=https://client.example.com/callback<br/>
+      &state=xyz<br/>
+      Authorization Response<br/>
+      https://client.example.com/callback<br/>
+      ?code=SplxlafdsaAfsa9fdsa9<br/>
+      &state=xyz<br/>
+    </p>
+    <div class="container">
+      <img alt="\_(0 >0)_/" src="./assets/AuthGrantType.PNG">
+    </div>
+    <h2>Implicit Grant Type</h2>
+    <p>
+      This grant type is primarily for front end javascript frameworks which are generally less secure as they are on
+      the clients side and less configurable on our end. In this version, the response asks fr the token directly, as
+      there is less ability and need for secrecy.
+    </p>
+    <p class="code">
+      https://authserver.example.com/authorize<br/>
+      ?response_type=token<br/>
+      &client_id=shsafda<br/>
+      &redirect_uri=httpe://client.example.com/callback<br/>
+    </p>
+    <h3>Drawbacks</h3>
+    <div class="container">
+      <ol>
+        <li>Access tokens exposed to resource owner</li>
+        <li>3rd party JavaScript also has access to tokens</li>
+        <li>No Validation that tokens are intended for client</li>
+      </ol>
+    </div>
+    <h2>Client Credentials Grant Type</h2>
+    <p>
+      Designed for clients as resources that have no machine to machine communication. It requires client
+      authentication and skips the user input steps all together. Tokens are rewuerstd through requests that look like
+      the below.
+    </p>
+    <p class="code">
+      POST /token HTTP1.1<br/>
+      Host: server.example.com<br/>
+      Content-Type: application/x-www-form-urlencoded<br/>
+      Authorization: Basic czZCasfreAsrASREaser1231<br/>
+      <br/>
+      grant_type=client_credentials<br/>
+      &scope=api api2.read<br/>
+    </p>
+    <div class="container">
+      <img alt="\_(0 >0)_/" src="./assets/ClientAuthGrant.PNG" class="pic">
+    </div>
+  </mat-card-content>
+</mat-card>

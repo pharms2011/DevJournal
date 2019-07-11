@@ -1,31 +1,43 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<link href="https://fonts.googleapis.com/css?family=Copperplate Gothic" rel="stylesheet"/>
 <h1 class="heading">
   Dev Journal
 </h1>
 
 <mat-sidenav-container>
-  <mat-sidenav  class="btn-container" #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')">
-    <br/>
-    <br/>
-    <div class="btn-group">
-      <button class="btn" (click)= 'changeState()' routerLink="Angular"><img src="../assets/images/favicon.ico"> Angular </button>
-      <button class="btn" routerLink="Angular-Material"><img src="../assets/images/Angular-Material.png"> Angular Material </button>
-      <button class="btn" routerLink="Amazon-Web-Services"><img src="../assets/images/aws-logo-icon-PNG-Transparent-Background.png"> Amazon Web Services </button>
-      <button class="btn" routerLink="Azure"><img src="../assets/images/Azure.png"> Azure </button>
-      <button class="btn" routerLink="C"><img src="../assets/images/c-programming.png"> C </button>
-      <button class="btn" routerLink="C-Sharp"><img src="../assets/images/C-Sharp.png"> C# </button>
-      <button class="btn" routerLink="Git"><img src="../assets/images/logo%20git%20icon.png"> Git </button>
-      <button class="btn" routerLink="Linux"><img src="../assets/images/Tux.svg"> Linux </button>
-      <button class="btn" routerLink="Python"><img src="../assets/images/Python-logo.png"> Python </button>
-      <button class="btn" routerLink="Spring"><img src="../assets/images/spring-3-logo-png-transparent.png"> Spring </button>
-    </div>
-  </mat-sidenav>
-
-  <mat-sidenav-content class="container">
-    <button mat-button class="table-button" (click)="sidenav.toggle()">Table of Contents</button>
-    <div class="content">
+    <mat-sidenav  class="btn-container" #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')">
       <br/>
+      <br/>
+      <div class="btn-group metal-blue mat-elevation-z10">
+        <button class="btn metal-blue" (click)= 'changeState()' routerLink="Angular"> Angular </button>
+        <button class="btn metal-blue" routerLink="Angular-Material"> Angular Material </button>
+        <button class="btn metal-blue"routerLink="Amazon-Web-Services"> Amazon Web Services </button>
+        <button class="btn metal-blue" routerLink="Azure"> Azure </button>
+        <button class="btn metal-blue" routerLink="C"> C </button>
+        <button class="btn metal-blue" routerLink="C-Sharp"> C# </button>
+        <button class="btn metal-blue" routerLink="CORS"> CORS </button>
+        <button class="btn metal-blue" routerLink="CSS"> CSS </button>
+        <button class="btn metal-blue" routerLink="django"> Django </button>
+        <button class="btn metal-blue" routerLink="Java"> Java </button>
+        <button class="btn metal-blue"routerLink="JavaGuidelines"> Java - Developer Standards </button>
+        <button class="btn metal-blue" routerLink="Junit"> JUnit </button>
+        <button class="btn metal-blue" routerLink="Kafka"> Kafka </button>
+        <button class="btn metal-blue" routerLink="Git"> Git </button>
+        <button class="btn metal-blue" routerLink="Linux"> Linux </button>
+        <button class="btn metal-blue" routerLink="OAuth2"> O Auth 2 </button>
+        <button class="btn metal-blue" routerLink="OOP"> OOP Concepts </button>
+        <button class="btn metal-blue" routerLink="Protractor"> Protractor </button>
+        <button class="btn metal-blue" routerLink="Python"> Python </button>
+        <button class="btn metal-blue" routerLink="ReactJS"> ReactJS </button>
+        <button class="btn metal-blue" routerLink="Spring-Boot-Admin"> Spring-Boot-Admin </button>
+        <button class="btn metal-blue" routerLink="Spring"> Spring </button>
+        <button class="btn metal-blue" routerLink="Unity"> Unity</button>
+      </div>
+    </mat-sidenav>
+  <mat-sidenav-content class="container">
+    <button mat-button class="table-button mat-elevation-z10 metal-blue" (click)="sidenav.toggle()">
+      Table of Contents
+    </button>
+    <br/><br/>
+    <div class="content">
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>

@@ -1,0 +1,28 @@
+<mat-card class="card">
+  <mat-card-header class="card-header">
+    <div mat-card-avatar class="angular-header-image"></div>
+    <mat-card-title><h1>Protractor</h1></mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="card-body">
+    <h2>What is Protractor?</h2>
+    <p>
+      Protractor is an e2e testing framework for Angular and Angular JS applications. This means it is used to test that
+      your application will work with all components on your application to make sure it is functioning as desired. These
+      tests usually run in the browser and mock a user or users of you application. Protractor can actually wait for
+      API calls that take time for Angular to load. It's also able to test bindings rather than compiled data which has
+      already been replaced by Angular. Protractor is designed to work with and test Angular directives commonly used,
+      like ngFor and ngIf.
+    </p>
+    <h2>Installing Protractor</h2>
+    <p>
+      To install protractor, just copy and paste the below commands. These will install both protractor and web-driver
+      manager needed to run protractor. Running the final command will start the selenium web driver on port 4444 by
+      default. Selenium will use this port to run commands against your application.
+    </p>
+    <p class="code">
+      npm install -g protractor<br/>
+      webdriver-manager update<br/>
+      webdriver-manager start<br/>
+    </p>
+  </mat-card-content>
+</mat-card>

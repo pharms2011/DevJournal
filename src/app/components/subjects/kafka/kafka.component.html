@@ -1,0 +1,118 @@
+<mat-card class="card">
+  <mat-card-header class="card-header">
+    <div mat-card-avatar class="angular-header-image"></div>
+    <mat-card-title><h1>Kafka</h1></mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="card-body">
+    <h2>What is Kafka?</h2>
+    <p>
+      Kafka is a way to transmit data among applications. Kafka is a messaging que similar to rabbit mq, but designed
+      for large enterprise level and sized applications. Kafka also implements database replication between different
+      types of data bases. It's defined as a streaming service for publishing and subscribing to data sources. Kafka
+      provides a consolidation and total accumulation of messages, allowing recovery from any point without worrying
+      about data loss. Kafka is also primarily designed for Java and Scala developers. Typically sends data in AVRO
+      form.<br/>
+      Kafka takes bytes as inputs and publishes them down stream. Kafka does no implicit data verification. Kaka doesn't
+      parse or even read data, it takes byes as input without even loading them into memory, it simply distributes
+      bytes. As far as Kafka is concerned, it doesn't even know if you data is an integer, a string, or a complex data
+      typeThis can be resolved using other frameworks built on top of Kafka such as the Confluent Schema Registry.
+    </p>
+    <h2>Messaging</h2>
+    <p>
+      Messaging is the paradigm by which data is transmitted between applications. Message transmission needs to be able
+      handle scalability, message sizes, fault tolerance and many other factor's. Messaging systems run risk of failure
+      when they are put under to much strain, they may fail and cause cascading application failures. The broker must
+      also send data reliably, as it does not persist messages for long periods of time. This means that if a message is
+      sent incorrectly, it cannot be fixed without resending the message from the producer application. The messages are
+      immutable, so to correct a message a new message must be inserted. This allows for a consistent and traceable log
+      of messages. The message retention policy is configurable and can be set in time or by size of the massages. This
+      is also set on a per topic basis, so different topics can have different policies.
+    </p>
+    <h2>Architecture</h2>
+    <br/>
+    <h3>Broker</h3>
+    <p>
+      Brokers are the heart of the kafka ecosystem. It manages how data is stored and where it is stored in. It also
+      manages offset's and many other things.
+      <br/>
+      Brokers are typically organised in clusters. These clusters process the data being sent through the system and
+      make sure the data is formatted correctly ad sent to the right down stream system. These brokers contain topics to
+      properly send data to the correct place. These topics are partitioned to allow for better scalability.
+      <br/>
+      Clusters must be seen as single points by outside consumers and producers. This is accomplished by assigning
+      one Broker as the leader. Fault tolerance and offsets are handled through the leader and managed through
+      zookeeper.
+    </p>
+    <h3>Logs</h3>
+    <p>
+      Messages are organized into logs, which are partitioned to allow for the data to be scald through different sized
+      Kafka applications. The order is kept by giving subsequent partitions offsets.
+    </p>
+    <h3>Zookeeper</h3>
+    <p>
+      The Mata data configuration which allows for group services and allows that if one leader in a kafka application
+      goes down another can take its place. It keeps the application from having a single point of failure.
+    </p>
+    <h3>Producer</h3>
+    <p>
+      The server which produces data. This is typically the start of the architecture. The data can be in any format,
+      and may be modified when needed. They create messages and send them to the appropriate broker. It can also
+      bundle and compress data that is going to the same broker.
+    </p>
+    <h3>Consumer</h3>
+    <p>
+      Consumers are put into groups and assigned topics, meaning different messages will be distributed to multiple
+      groups based on the topic. Consumers read topics from the broker and confirm back to the broker as to what they
+      have consumed. Consumers can be replicated and grouped when needed. One of these consumers acts as the
+      coordinator/leader to help organize and equally share data. Consumers are monitored though continuous ping
+      heartbeats. Most of this configuration is handled for you. Consumers not only read data, but must organize and
+      share data among clusters.
+    </p>
+    <h3>Data Management</h3>
+    <p>
+      Data is managed through partitions. These are treated as separate files which are never multi-located. It can and
+      should be replicated, but never distributed further. The partitions and replicas are round robin split into
+      brokers within a hub. It can now take into count the geographical location of a server rack to help with fault
+      tolerance. The goals is to keep data as evenly distributed as possible. Data retention can be sized or time based,
+      depending on your needs.
+    </p>
+    <h2>Controller</h2>
+    <p>
+      Work in a cluster is assigned by the designated as the controller. This controller is a broker assigned to
+      delegate work based on the replication settings depending on the criticality of the data and the specific settings
+      behind the scenes.
+    </p>
+    <h2>Zookeeper</h2>
+    <p>
+      A centralized service for metadata for distributed clusters containing configuration information, health status,
+      and group membership. It is also a distributed system that requires multiple instances to work properly.
+    </p>
+    <h2>Partitions</h2>
+    <p>
+      Physical log systems which are configurable per topic.
+    </p>
+    <h2>Setup</h2>
+    <p>
+      Kafka setup is easily achievable and highly configurable.
+    </p>
+    <div class="container">
+      <ol>
+        <li>Download Kafka</li>
+        <li>Download Zookeeper</li>
+        <li>Start the Zookeeper Server ./zookeeper-server-start.bat ../../config/zoo.cfg</li>
+        <li>Start the Kafka Server ./kafka-server-start.bat ../../config/server.properties</li>
+        <li>Create a topic ./kafka-topics.bat
+          --create
+          --zookeeper localhost:2181
+          --replication-factor 1
+          --partitions 3
+          --topic weather</li>
+        <li></li>
+      </ol>
+    </div>
+    <h2>What is the Confluent Schema Registry?</h2>
+    <p>
+
+    </p>
+  </mat-card-content>
+</mat-card>
